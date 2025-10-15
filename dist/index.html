@@ -15,12 +15,13 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
     />
     <link rel="stylesheet" href="css/main.min.css" />
+    <script src="js/main.js" type="module"></script>
   </head>
   <body>
     <main>
       <h1 class="center" tabindex="0" id="main-heading">Rock Paper Scissors</h1>
       <a href="#p1msg" class="skip-link">Skip scoreboard</a>
-      <section id="scoreBoard" class="scoreBoard">
+      <section id="scoreBoard" class="scoreboard">
         <h2 class="offscreen">Scoreboard</h2>
         <section id="all_time" class="scoreboard__section">
           <h3 class="offscreen">All Time Scoreboard</h3>
@@ -32,7 +33,7 @@
           <div class="scoreboard__row" role="row">
             <div
               id="p1_all_time_score"
-              class="scoreboard__score_center"
+              class="scoreboard__score"
               role="cell"
               aria-label="Player One All Time Wins"
               tabindex="0"
@@ -41,7 +42,7 @@
             </div>
             <div
               id="cp_all_time_score"
-              class="scoreboard__score_center"
+              class="scoreboard__score"
               role="cell"
               aria-label="Computer Player All Time Wins"
               tabindex="0"
@@ -60,7 +61,7 @@
           <div class="scoreboard__row" role="row">
             <div
               id="p1_session_score"
-              class="scoreboard__score_center"
+              class="scoreboard__score"
               role="cell"
               aria-label="Player One Session Wins"
               tabindex="0"
@@ -69,7 +70,7 @@
             </div>
             <div
               id="cp_session_score"
-              class="scoreboard__score_center"
+              class="scoreboard__score"
               role="cell"
               aria-label="Computer Player Session Wins"
               tabindex="0"
@@ -79,7 +80,7 @@
           </div>
         </section>
       </section>
-      <section id="playerBoard" class="playerBoard">
+      <section id="playerboard" class="playerboard">
         <h2 id="p1msg" aria-label="Player One Chooses">
           Player One Chooses...
         </h2>
@@ -95,16 +96,16 @@
           </div>
         </div>
       </section>
-      <section id="computerBoard" class="computerBoard">
+      <section id="computerboard" class="computerboard">
         <h2 id="cpmsg" aria-label="Computer Chooses">Computer Chooses...</h2>
         <div id="gameboard" class="gameboard">
-          <div id="rock" class="gameboard__square">
+          <div id="cp_rock" class="gameboard__square">
             <img src="img/rock.png" alt="Rock" tabindex="0" />
           </div>
-          <div id="paper" class="gameboard__square">
+          <div id="cp_paper" class="gameboard__square">
             <img src="img/paper.png" alt="Paper" tabindex="0" />
           </div>
-          <div id="scissors" class="gameboard__square">
+          <div id="cp_scissors" class="gameboard__square">
             <img src="img/scissors.png" alt="Scissors" tabindex="0" />
           </div>
         </div>

@@ -1,5 +1,5 @@
 @use "../abstracts/colors" as colors;
-@use "../abstracts/mixins" as abstracts;
+@use "../abstracts/mixins" as mixins;
 
 * {
   margin: 0;
@@ -16,7 +16,7 @@ html {
 body {
   background-color: colors.$bgcolor;
   min-height: 100vh;
-  @include abstracts.mq(768px) {
+  @include mixins.mq(768px) {
     font-size: 36px;
   }
 }
@@ -32,14 +32,14 @@ main {
 h1 {
     margin: 0.5rem 0;
     font-size: 1rem;
-    @include abstracts.mq(768px) {
+    @include mixins.mq(768px) {
       font-size: 2rem;
     }
 }
 h2 {
     margin: 0.5rem 0;
     font-size: 0.85rem;
-    @include abstracts.mq(768px) {
+    @include mixins.mq(768px) {
       font-size: 1.5rem;
     }
 }
