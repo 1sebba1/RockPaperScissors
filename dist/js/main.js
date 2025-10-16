@@ -57,7 +57,8 @@ const listenForPlayerChoice = () => {
     img.addEventListener("click", (e) => {
       if (Game.getActiveStatus()) {
         console.log("Game in progress, wait for it to finish");
-        return;}
+        return;
+      }
       Game.startGame();
       console.log("Game started");
       const playerChoice = e.target.parentElement.id;
@@ -108,13 +109,53 @@ const computerAnimationSequence = (playerChoice) => {
   let interval = 1000;
   setTimeout(() => computerChoiceAnimation("cp_rock", 1), interval);
   setTimeout(() => computerChoiceAnimation("cp_paper", 2), (interval += 500));
-  //setTimeout(() => computerChoiceAnimation("cp_scissors", 3), (interval += 500));
+  setTimeout(
+    () => computerChoiceAnimation("cp_scissors", 3),
+    (interval += 500)
+  );
+  setTimeout(() => countdownFade(), (interval += 750));
+  setTimeout(() => {
+    deleteCountdown();
+    finishGameFlow(playerChoice);
+  }, (interval += 750));
+  setTimeout(() => askUserToPlayAgain(), (interval += 1000));
 };
 
 const computerChoiceAnimation = (elementId, number) => {
   const element = document.getElementById(elementId);
-  element.firstChild.remove();
+  element.firstElementChild.remove();
   const p = document.createElement("p");
   p.textContent = number;
   element.appendChild(p);
+};
+
+const countdownFade = () => {
+  const countdown = document.querySelectorAll(
+    ".computerboard .gameboard__square p"
+  );
+  countdown.forEach((num) => {
+    num.className = "fadeOut";
+  });
+};
+
+const deleteCountdown = () => {
+  const countdown = document.querySelectorAll(
+    ".computerboard .gameboard__square p"
+  );
+  countdown.forEach((num) => {
+    num.remove();
+  });
+};
+
+const askUserToPlayAgain = () => {
+  const playAgain = document.getElementById("play_again");
+  playAgain.classList.toggle("hidden");
+  playAgain.focus();
+};
+
+const resetBoard = () => {
+  const gameboardSquares = document.querySelectorAll(".gameboard div");
+  gameboardSquares.forEach((square) => {
+    square.classList.remove("selected", "not-selected", "winner", "loser");
+  });
 };
